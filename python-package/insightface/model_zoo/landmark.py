@@ -108,7 +108,7 @@ class Landmark:
             s, R, t = transform.P2sRt(P)
             rx, ry, rz = transform.matrix2angle(R)
             pose = np.array( [rx, ry, rz], dtype=np.float32 )
-            face['pose'] = pose #pitch, yaw, roll
+            face['pose'] = [pose,R,P,t] #pitch, yaw, roll, rotation vector, camera matrix, transformational vector
         return pred
 
 
